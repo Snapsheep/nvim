@@ -1,6 +1,5 @@
 call plug#begin("~/.vim/plugged")
 "Plugin Section
-  Plug 'dracula/vim'
   Plug 'preservim/nerdtree'
   Plug 'ryanoasis/vim-devicons'
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -8,6 +7,26 @@ call plug#begin("~/.vim/plugged")
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'leafgarland/typescript-vim'
   Plug 'peitalin/vim-jsx-typescript'
+  Plug 'honza/vim-snippets'
+
+  "" Color
+  Plug 'dracula/vim'
+  "Plug 'crusoexia/vim-monokai'
+
+  "*****************************************************************************
+  "" Custom bundles
+  "*****************************************************************************
+
+  " javascript
+  "" Javascript Bundle
+"  Plug 'jelera/vim-javascript-syntax'
+
+  " php
+  "" PHP Bundle
+  Plug 'arnaud-lb/vim-php-namespace'
+
+  "*****************************************************************************
+  "*****************************************************************************
 call plug#end()
 
 "Config Section
@@ -16,19 +35,37 @@ if (has("termguicolors"))
 endif
 syntax enable
 colorscheme dracula
+let g:airline_theme='dracula'
+"colorscheme monokai
 
-"Config setting
-set encoding=utf8
+"" Encoding
+set encoding=utf-8
+set fileencoding=utf-8
+set fileencodings=utf-8
+set bomb
+set binary
+
 let g:airline_powerline_fonts = 1
+"let g:airline_theme = 1
+"let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
 set undodir=path/to/dir
 set nu
+set ruler
 set expandtab
 set tabstop=2
 set softtabstop=0 noexpandtab
 set shiftwidth=2
 set tabstop=2 softtabstop=0 expandtab shiftwidth=2 smarttab
 set noswapfile
+
+"" Enable hidden buffers
+set hidden
+
+"" Directories for swp files
+set nobackup
+set noswapfile
+
 
 "Config COC
 let g:coc_global_extensions = ['coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier', 'coc-tsserver']
